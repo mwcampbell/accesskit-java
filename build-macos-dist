@@ -7,5 +7,5 @@ rm -rf dist
 mkdir -p dist/contents
 cd dist/contents
 cp ../../build/libs/accesskit.jar .
-lipo -create -output libaccesskit_jni.dylib ../../../../target/aarch64-apple-darwin/release/libaccesskit_jni.dylib ../../../../target/x86_64-apple-darwin/release/libaccesskit_jni.dylib
+lipo -create -output libaccesskit_jni.dylib ../../target/aarch64-apple-darwin/release/libaccesskit_jni.dylib ../../target/x86_64-apple-darwin/release/libaccesskit_jni.dylib
 zip -9r ../accesskit-jni.zip .
