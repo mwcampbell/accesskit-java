@@ -17,8 +17,8 @@ public final class MacosSubclassingAdapter extends Adapter {
     }
 
     // TODO: action handler
-    public static MacosSubclassingAdapter forWindow(long window, TreeUpdateSupplier initialStateSupplier) {
-        NativePointerSupplier nativeSupplier = TreeUpdate.makeNativeSupplier(initialStateSupplier);
+    public static MacosSubclassingAdapter forWindow(long window, ActivationHandler activationHandler) {
+        NativePointerSupplier nativeSupplier = TreeUpdate.makeNativeSupplier(activationHandler);
         return new MacosSubclassingAdapter(nativeForWindow(window, nativeSupplier));
     }
 
