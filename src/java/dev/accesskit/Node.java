@@ -124,6 +124,16 @@ public final class Node {
         nativeSetCharacterWidths(ptr, value);
     }
 
+    public void setPositionInSet(int value) {
+        checkActive();
+        nativeSetPositionInSet(ptr, value);
+    }
+
+    public void setSizeOfSet(int value) {
+        checkActive();
+        nativeSetSizeOfSet(ptr, value);
+    }
+
     long ptr;
     private static native long nativeNew(int role);
     private static native void nativeDrop(long ptr);
@@ -146,6 +156,8 @@ public final class Node {
     private static native void nativeSetWordLengths(long ptr, byte[] value);
     private static native void nativeSetCharacterPositions(long ptr, float[] value);
     private static native void nativeSetCharacterWidths(long ptr, float[] value);
+    private static native void nativeSetPositionInSet(long ptr, int value);
+    private static native void nativeSetSizeOfSet(long ptr, int value);
 
     void checkActive() {
         Util.checkActive(ptr);

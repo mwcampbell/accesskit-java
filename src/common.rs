@@ -271,6 +271,28 @@ pub extern "system" fn Java_dev_accesskit_Node_nativeSetCharacterWidths(
 }
 
 #[no_mangle]
+pub extern "system" fn Java_dev_accesskit_Node_nativeSetPositionInSet(
+    _env: JNIEnv,
+    _class: JClass,
+    ptr: jlong,
+    value: jint,
+) {
+    let node = mut_from_jptr::<Node>(ptr);
+    node.set_position_in_set(value as _);
+}
+
+#[no_mangle]
+pub extern "system" fn Java_dev_accesskit_Node_nativeSetSizeOfSet(
+    _env: JNIEnv,
+    _class: JClass,
+    ptr: jlong,
+    value: jint,
+) {
+    let node = mut_from_jptr::<Node>(ptr);
+    node.set_size_of_set(value as _);
+}
+
+#[no_mangle]
 pub extern "system" fn Java_dev_accesskit_TreeUpdate_nativeWithFocus(
     _env: JNIEnv,
     _class: JClass,
