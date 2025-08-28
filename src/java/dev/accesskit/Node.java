@@ -32,6 +32,11 @@ public final class Node {
         nativeSetLabel(ptr, Util.bytesFromString(value));
     }
 
+    public void setDescription(String value) {
+        checkActive();
+        nativeSetDescription(ptr, Util.bytesFromString(value));
+    }
+
     public void setValue(String value) {
         checkActive();
         nativeSetValue(ptr, Util.bytesFromString(value));
@@ -139,6 +144,7 @@ public final class Node {
     private static native void nativeDrop(long ptr);
     private static native void nativeAddAction(long ptr, int action);
     private static native void nativeSetLabel(long ptr, byte[] value);
+    private static native void nativeSetDescription(long ptr, byte[] value);
     private static native void nativeSetValue(long ptr, byte[] value);
     private static native void nativeSetBounds(long ptr, double x0, double y0, double x1, double y1);
     private static native void nativeAddChild(long ptr, long id);
