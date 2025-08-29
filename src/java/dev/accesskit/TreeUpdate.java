@@ -87,10 +87,10 @@ public final class TreeUpdate {
                 long ptr = update.ptr;
                 update.ptr = 0;
                 return ptr;
-            } catch (Exception e) {
+            } catch (Throwable t) {
                 // Don't make the native side print the stack trace.
-                e.printStackTrace();
-                throw e;
+                t.printStackTrace();
+                throw t;
             }
         };
     }
