@@ -42,6 +42,16 @@ public final class Node {
         nativeSetValue(ptr, Util.bytesFromString(value));
     }
 
+    public void setAccessKey(String value) {
+        checkActive();
+        nativeSetAccessKey(ptr, Util.bytesFromString(value));
+    }
+
+    public void setKeyboardShortcut(String value) {
+        checkActive();
+        nativeSetKeyboardShortcut(ptr, Util.bytesFromString(value));
+    }
+
     public void setBounds(Rect value) {
         checkActive();
         nativeSetBounds(ptr, value.x0, value.y0, value.x1, value.y1);
@@ -146,6 +156,8 @@ public final class Node {
     private static native void nativeSetLabel(long ptr, byte[] value);
     private static native void nativeSetDescription(long ptr, byte[] value);
     private static native void nativeSetValue(long ptr, byte[] value);
+    private static native void nativeSetAccessKey(long ptr, byte[] value);
+    private static native void nativeSetKeyboardShortcut(long ptr, byte[] value);
     private static native void nativeSetBounds(long ptr, double x0, double y0, double x1, double y1);
     private static native void nativeAddChild(long ptr, long id);
     private static native void nativeClearChildren(long ptr);

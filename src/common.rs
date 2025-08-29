@@ -83,6 +83,30 @@ pub extern "system" fn Java_dev_accesskit_Node_nativeSetValue(
 }
 
 #[no_mangle]
+pub extern "system" fn Java_dev_accesskit_Node_nativeSetAccessKey(
+    env: JNIEnv,
+    _class: JClass,
+    ptr: jlong,
+    value: JByteArray,
+) {
+    let node = mut_from_jptr::<Node>(ptr);
+    let value = box_str_from_utf8_jbytes(&env, value);
+    node.set_access_key(value);
+}
+
+#[no_mangle]
+pub extern "system" fn Java_dev_accesskit_Node_nativeSetKeyboardShortcut(
+    env: JNIEnv,
+    _class: JClass,
+    ptr: jlong,
+    value: JByteArray,
+) {
+    let node = mut_from_jptr::<Node>(ptr);
+    let value = box_str_from_utf8_jbytes(&env, value);
+    node.set_keyboard_shortcut(value);
+}
+
+#[no_mangle]
 pub extern "system" fn Java_dev_accesskit_Node_nativeSetBounds(
     _env: JNIEnv,
     _class: JClass,
